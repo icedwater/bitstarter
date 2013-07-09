@@ -1,9 +1,11 @@
 var express = require('express');
+var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  response.send('Hello World 2! Just can\'t follow instructions exactly \;\)');
+  var contents = fs.readFileSync('index.html', 'utf-8');
+  console.log(contents);
 });
 
 var port = process.env.PORT || 5000;
